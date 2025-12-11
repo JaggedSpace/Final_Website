@@ -1,0 +1,1152 @@
+/*                       * 
+                                  * 
+     *                                             * 
+                                          * 
+               * 
+                             * 
+                                                       * 
+    * 
+                                             * 
+        * 
+                      *             * 
+                                                * 
+ *                                                               * 
+          * 
+                          (             ) 
+                  )      (*)           (*)      ( 
+         *       (*)      |             |      (*) 
+                  |      |~|           |~|      |          * 
+                 |~|     | |           | |     |~| 
+                 | |     | |           | |     | | 
+                ,| |a@@@@| |@@@@@@@@@@@| |@@@@a| |. 
+           .,a@@@| |@@@@@| |@@@@@@@@@@@| |@@@@@| |@@@@a,. 
+         ,a@@@@@@| |@@@@@@@@@@@@.@@@@@@@@@@@@@@| |@@@@@@@a, 
+        a@@@@@@@@@@@@@@@@@@@@@' . `@@@@@@@@@@@@@@@@@@@@@@@@a 
+        ;`@@@@@@@@@@@@@@@@@@'   .   `@@@@@@@@@@@@@@@@@@@@@'; 
+        ;@@@`@@@@@@@@@@@@@'     .     `@@@@@@@@@@@@@@@@'@@@; 
+        ;@@@;,.aaaaaaaaaa       .       aaaaa,,aaaaaaa,;@@@; 
+        ;;@;;;;@@@@@@@@;@      @.@      ;@@@;;;@@@@@@;;;;@@; 
+        ;;;;;;;@@@@;@@;;@    @@ . @@    ;;@;;;;@@;@@@;;;;;;; 
+        ;;;;;;;;@@;;;;;;;  @@   .   @@  ;;;;;;;;;;;@@;;;;@;; 
+        ;;;;;;;;;;;;;;;;;@@     .     @@;;;;;;;;;;;;;;;;@@a; 
+    ,%%%;;;;;;;;@;;;;;;;;       .       ;;;;;;;;;;;;;;;;@@;;%%%, 
+ .%%%%%%;;;;;;;a@;;;;;;;;     ,%%%,     ;;;;;;;;;;;;;;;;;;;;%%%%%%, 
+.%%%%%%%;;;;;;;@@;;;;;;;;   ,%%%%%%%,   ;;;;;;;;;;;;;;;;;;;;%%%%%%%, 
+%%%%%%%%`;;;;;;;;;;;;;;;;  %%%%%%%%%%%  ;;;;;;;;;;;;;;;;;;;'%%%%%%%% 
+%%%%%%%%%%%%`;;;;;;;;;;;;,%%%%%%%%%%%%%,;;;;;;;;;;;;;;;'%%%%%%%%%%%% 
+`%%%%%%%%%%%%%%%%%,,,,,,,%%%%%%%%%%%%%%%,,,,,,,%%%%%%%%%%%%%%%%%%%%' 
+  `%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' 
+      `%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' 
+             """"""""""""""`,,,,,,,,,'""""""""""""""""" 
+                            `%%%%%%%' 
+                             `%%%%%' 
+                               %%% 
+                              %%%%% 
+                           .,%%%%%%%,. 
+                      ,%%%%%%%%%%%%%%%%%%%, 
+          ---------------------------------------------*/
+
+
+/*----------------Welcome To The CSS File----------------*/
+/*--------------------------Theme of this website was inspired by https://digart.io/ -----------------------------*/
+/*-------------Formatting Ideas were heavily inspired by https://www.myst.gr/ -------------------*/
+/* 
+ * Student Contribution: HTML structure and flex positioning CSS
+ * GenAI Contribution: All other CSS styling, animations, and effects
+ */
+
+/* CSS Reset from genai */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #e0e0e0;
+    background-color: hsl(var(--background));
+}
+
+body * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+body *.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Header */
+header {
+    background-color: rgba(26, 26, 26, 0.8);
+    padding: 3vh 2vw;
+    border-bottom: 1px solid #333;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+
+.header-circle {
+    width: 4vh;
+    height: 4vh;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+}
+
+.menu-btn {
+    position: relative;
+    z-index: 101;
+    color: #e0e0e0;
+    font-size: 2vw;
+    padding: 0.5vh 1vw;
+    cursor: pointer;
+}
+/* side panel from genai */
+.side-panel {
+    position: fixed;
+    top: 0;
+    left: -30vw;
+    width: 30vw;
+    height: 100vh;
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 102;
+    transition: left 0.5s;
+    padding: 5vh 2vw;
+    border-right: 1px solid #333;
+}
+
+.side-panel.open {
+    left: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    color: #e0e0e0;
+    font-size: 3vw;
+    cursor: pointer;
+}
+
+.side-panel nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top: 5vh;
+}
+
+.side-panel nav a {
+    color: #e0e0e0;
+    font-size: 1.5vw;
+    display: block;
+    padding: 1vh 0;
+}
+
+.side-panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 101;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s, visibility 0.5s, background-color 0.5s;
+}
+
+.side-panel-overlay.active {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Main Layout */
+main {
+    flex: 1;
+    max-width: 90vw;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 10vh;
+}
+
+.hero {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-bottom: 3vh;
+}
+
+.hero-box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 2vw;
+    background-image: url('https://cdn-bnokp.nitrocdn.com/QNoeDwCprhACHQcnEmHgXDhDpbEOlRHH/assets/images/optimized/rev-162bb58/www.decorilla.com/online-decorating/wp-content/uploads/2023/06/Dark-marble-kitchen-design-ideas-by-Decorilla-1-2048x1365.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.recipe-hero .hero-box {
+    background-image: url('https://images.pexels.com/photos/2403392/pexels-photo-2403392.jpeg?auto=compress&cs=tinysrgb&w=1920');
+}
+
+.hero-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-box h1 {
+    font-size: 8vw;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-box h1 .indent {
+    font-style: italic;
+}
+
+.hero-box p {
+    font-size: 2vw;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.intro-text {
+    padding: 5vh 2vw;
+    margin-top: 4vh;
+    text-align: center;
+    position: relative;
+    min-height: 40vh;
+    overflow: hidden;
+}
+
+.intro-text h1 {
+    font-size: 7vw;
+    margin-bottom: 2vh;
+    color: #ffffff;
+}
+
+.intro-text h2 {
+    font-size: 4vw;
+    margin-bottom: 2vh;
+    color: #ffffff;
+}
+
+.intro-text p {
+    font-size: 2vw;
+    color: #ffffff;
+    max-width: 60vw;
+    margin: 0 auto;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.text-content {
+    position: relative;
+    z-index: 1;
+}
+
+.intro-text.left,
+a.intro-text.left {
+    text-align: left;
+    width: 45vw;
+    padding: 3vh 5vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    display: block;
+}
+
+.intro-text.right,
+a.intro-text.right {
+    text-align: right;
+    width: 45vw;
+    padding: 3vh 5vw;
+    margin-left: auto;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    display: block;
+}
+
+.dots-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30vw;
+    height: 30vw;
+    transform: translate(-50%, -50%);
+    animation: rotate 20s linear infinite;
+    z-index: 0;
+}
+
+.dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #e9852e;
+    border-radius: 50%;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.content-box {
+    padding: 5vh 2vw;
+    margin-bottom: 3vh;
+    text-align: center;
+}
+
+.content-box h2 {
+    font-size: 4vw;
+    margin-bottom: 3vh;
+    color: #e0e0e0;
+}
+
+.content-box:has(.info-grid) h2,
+.content-box:has(.awards-grid) h2,
+.content-box:has(.contact-info) h2,
+.content-box:has(.research-section) h2 {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-family: "Arial" !important;
+}
+
+.content-box:has(.subscription-form) h2 {
+    font-size: 2vw;
+    color: #e0e0e0;
+    font-family: "Helvetica", sans-serif;
+    font-weight: normal;
+}
+
+.content-box p {
+    font-size: 1.5vw;
+    color: #b0b0b0;
+    max-width: 60vw;
+    margin: 2vh auto 0;
+    line-height: 1.6;
+}
+
+/* Flex Layouts */
+.info-grid {
+    display: flex;
+    gap: 2vw;
+    max-width: 90vw;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.info-card {
+    padding: 5vh 2vw;
+    min-width: 18vw;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.info-card:hover {
+    transform: scale(0.95);
+    box-shadow: 0 4px 16px rgba(233, 133, 46, 0.3);
+}
+
+.info-card h3 {
+    font-size: 3vw;
+    color: white;
+    margin: 0;
+    rotate: -90deg;
+    transform-origin: left center;
+    position: absolute;
+    bottom: 2vh;
+    left: 2vw;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.nutrient-card {
+    background-size: cover;
+    background-position: center;
+}
+
+.omega3-bg {
+    background-image: url('images/Omega3.webp');
+}
+
+.antioxidants-bg {
+    background-image: url('images/Antioxidants.jpg');
+}
+
+.bvitamin-bg {
+    background-image: url('images/b-vitamin.jpg');
+}
+
+.carbs-bg {
+    background-image: url('images/Carbs.jpg');
+}
+
+.iron-bg {
+    background-image: url('images/iron.jpeg');
+}
+
+.protein-bg {
+    background-image: url('images/Protein.jpg');
+}
+
+.probiotics-bg {
+    background-image: url('images/probiotics.jpg');
+}
+
+.fiber-bg {
+    background-image: url('images/fiber.jpg');
+}
+
+.prebiotics-bg {
+    background-image: url('images/prebiotics.webp');
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2vw;
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.award-image {
+    max-width: 10vh;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    margin-top: 3vh;
+    flex-wrap: wrap;
+}
+
+.contact-info p {
+    font-size: 0.75vw;
+    color: #e0e0e0;
+    margin: 0;
+    font-family: "Helvetica", sans-serif;
+}
+
+.social-links {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+
+.social-icon {
+    width: 1vw;
+    height: 1vw;
+    object-fit: contain;
+}
+
+.section-separator {
+    width: 75%;
+    height: 1px;
+    background-color: white;
+    margin: 5vh auto;
+}
+
+/* Brainpower energy gut Sections */
+.omega3-section {
+    display: flex;
+    gap: 0;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    align-items: center;
+}
+
+.omega3-content {
+    flex: 1;
+    padding: 5vh 2vw;
+    background-color: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+    margin-right: -10vw;
+}
+
+.omega3-section.omega3-section-reverse {
+    flex-direction: row-reverse !important;
+}
+
+.omega3-section.omega3-section-reverse .omega3-content {
+    margin-right: 0 !important;
+    margin-left: -10vw !important;
+    z-index: 2;
+}
+
+.omega3-section.omega3-section-reverse .omega3-image {
+    z-index: 1;
+}
+
+.omega3-content h2 {
+    font-size: 4vw;
+    margin-bottom: 3vh;
+    color: #e0e0e0;
+}
+
+.omega3-content p {
+    font-size: 1.5vw;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+
+.omega3-image {
+    flex: 0 0 70vh;
+    height: 70vh;
+    background-image: url('images/Omega3.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+#antioxidants .omega3-image {
+    background-image: url('images/Antioxidants.jpg');
+}
+
+#b-vitamins .omega3-image {
+    background-image: url('images/b-vitamin.jpg');
+}
+
+#probiotics .omega3-image {
+    background-image: url('images/probiotics.jpg');
+}
+
+#fiber .omega3-image {
+    background-image: url('images/fiber.jpg');
+}
+
+#prebiotics .omega3-image {
+    background-image: url('images/prebiotics.webp');
+}
+
+#complex-carbs .omega3-image {
+    background-image: url('images/Carbs.jpg');
+}
+
+#iron .omega3-image {
+    background-image: url('images/iron.jpeg');
+}
+
+#protein .omega3-image {
+    background-image: url('images/Protein.jpg');
+}
+
+/* Food Slider */
+.food-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    overflow: hidden;
+    width: 100%;
+    max-width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.food-slides-container {
+    display: flex;
+    gap: 2vw;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.food-slide {
+    flex: 0 0 auto;
+    width: 25vw;
+    padding: 2vh 4vw;
+    background-color: rgba(30, 30, 30, 0.8);
+    border: 1px solid #333;
+    border-radius: 12px;
+    color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    white-space: nowrap;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(var(--scroll-distance, -50%));
+    }
+}
+
+/* Recipe Cards */
+.recipe-card {
+    background-color: rgba(30, 30, 30, 0.8);
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 1;
+    transform: translateY(0);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.recipe-card * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(233, 133, 46, 0.3);
+}
+
+.recipe-image {
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.recipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-content {
+    padding: 2vh 2vw;
+}
+
+.recipe-content h3 {
+    margin-bottom: 1vh;
+    color: #e9852e;
+}
+
+.recipe-summary {
+    color: #b0b0b0;
+    margin-bottom: 1vh;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 1.5vw;
+    margin-bottom: 1vh;
+    color: #e0e0e0;
+}
+
+.recipe-link {
+    display: inline-block;
+    padding: 1vh 2vw;
+    background-color: #e9852e;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.recipe-link:hover {
+    background-color: #d17528;
+    transform: scale(1.05);
+}
+
+.recipe-placeholder {
+    padding: 5vh 2vw;
+    text-align: center;
+    color: #e0e0e0;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Recipe Search */
+.recipe-search {
+    padding: 5vh 2vw;
+    text-align: center;
+}
+
+.recipe-search h1 {
+    font-size: 5vw;
+    margin-bottom: 3vh;
+    color: #e0e0e0;
+}
+
+.search-container {
+    display: flex;
+    gap: 1vw;
+    max-width: 50vw;
+    margin: 0 auto 2vh;
+}
+
+#recipe-query {
+    flex: 1;
+    padding: 1.5vh 2vw;
+    border: 2px solid #333;
+    background-color: rgba(26, 26, 26, 0.8);
+    color: #e0e0e0;
+    border-radius: 8px;
+    font-size: 1.2vw;
+}
+
+#recipe-query:focus {
+    outline: none;
+    border-color: #e9852e;
+}
+
+#search-btn {
+    padding: 1.5vh 3vw;
+    background-color: #e9852e;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+#search-btn:hover {
+    background-color: #d17528;
+    transform: scale(1.05);
+}
+
+#loading {
+    text-align: center;
+    padding: 2vh;
+    color: #e0e0e0;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    background-color: rgba(248, 215, 218, 0.2);
+    color: #f8d7da;
+    padding: 1vh 1vw;
+    border-radius: 8px;
+    margin-bottom: 1vh;
+    text-align: center;
+}
+
+.recipe-results {
+    padding: 5vh 2vw;
+}
+
+.recipe-results h2 {
+    font-size: 4vw;
+    margin-bottom: 3vh;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+#recipes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
+    gap: 2vw;
+}
+
+/* Subscription Form */
+.subscription-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    margin-top: 3vh;
+    max-width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.email-input {
+    flex: 1;
+    padding: 1.5vh 2vw;
+    font-size: 1vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-family: "Helvetica", sans-serif;
+    outline: none;
+}
+
+.email-input:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-btn {
+    padding: 1.5vh 3vw;
+    font-size: 1vw;
+    background-color: #e9852e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Helvetica", sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.subscribe-btn:hover {
+    background-color: #d6751f;
+    transform: scale(1.05);
+}
+
+/* Fast Food */
+.fast-food-section {
+    display: flex;
+    gap: 0;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    align-items: center;
+    will-change: transform, opacity;
+}
+
+.fast-food-content {
+    flex: 1;
+    padding: 5vh 2vw;
+    background-color: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+    margin-right: -10vw;
+}
+
+.fast-food-section-reverse .fast-food-content {
+    margin-right: 0;
+    margin-left: -10vw;
+}
+
+.fast-food-content h2 {
+    font-size: 4vw;
+    margin-bottom: 3vh;
+    color: #e0e0e0;
+}
+
+.fast-food-content h3 {
+    font-size: 1.5vw;
+    color: white;
+    margin-bottom: 1vh;
+    margin-top: 2vh;
+}
+
+.fast-food-content h3:first-of-type {
+    margin-top: 0;
+}
+
+.fast-food-content p {
+    font-size: 1.5vw;
+    color: #b0b0b0;
+    line-height: 1.6;
+    margin-bottom: 1vh;
+}
+
+.fast-food-image {
+    flex: 0 0 70vh;
+    height: 70vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+#chickfila .fast-food-image {
+    background-image: url('images/Chick-fil-A-Logo.png');
+}
+
+#starbucks .fast-food-image {
+    background-image: url('images/starbucks.png');
+}
+
+#mcdonalds .fast-food-image {
+    background-image: url('images/mcdonalds.png');
+}
+
+#sonic .fast-food-image {
+    background-image: url('images/sonic.svg');
+}
+
+#popeyes .fast-food-image {
+    background-image: url('images/popeyes.png');
+}
+
+#subway .fast-food-image {
+    background-image: url('images/subway.png');
+}
+
+#panda .fast-food-image {
+    background-image: url('images/panda_logo.png');
+}
+
+.chickfila-bg {
+    background-image: url('images/Chick-fil-A-Logo.png');
+}
+
+.starbucks-bg {
+    background-image: url('images/starbucks.png');
+}
+
+.mcdonalds-bg {
+    background-image: url('images/mcdonalds.png');
+}
+
+.sonic-bg {
+    background-image: url('images/sonic.svg');
+}
+
+.popeyes-bg {
+    background-image: url('images/popeyes.png');
+}
+
+.subway-bg {
+    background-image: url('images/subway.png');
+}
+
+.panda-bg {
+    background-image: url('images/panda_logo.png');
+}
+
+.gradient-border {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.chickfila-gradient::before {
+    background: linear-gradient(135deg, #e4002b 0%, #ff6b6b 25%, #ffffff 50%, #e4002b 75%, #c41e3a 100%);
+}
+
+.starbucks-gradient::before {
+    background: linear-gradient(135deg, #00704a 0%, #1e3932 25%, #ffffff 50%, #00704a 75%, #0d4a2c 100%);
+}
+
+.mcdonalds-gradient::before {
+    background: linear-gradient(135deg, #ffc72c 0%, #ffbc0d 25%, #da291c 50%, #ffc72c 75%, #ff6b35 100%);
+}
+
+.sonic-gradient::before {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 25%, #0066cc 50%, #ff6b35 75%, #004d99 100%);
+}
+
+.popeyes-gradient::before {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 25%, #9e5802 50%, #ff6b35 75%, #f58e0f 100%);
+}
+
+.subway-gradient::before {
+    background: linear-gradient(135deg, #0f7b0f 0%, #4caf50 25%, #ffc72c 50%, #0f7b0f 75%, #2e7d32 100%);
+}
+
+.panda-gradient::before {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 25%, #c41e3a 50%, #ff6b35 75%, #e63946 100%);
+}
+
+/* Research Section */
+.research-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top: 3vh;
+    max-width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.research-item {
+    display: block;
+    padding: 3vh 2vw;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid #e9852e;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.research-item:hover {
+    transform: scale(0.95);
+    box-shadow: 0 4px 16px rgba(233, 133, 46, 0.3);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.research-item h3 {
+    font-size: 1.5vw;
+    color: #e0e0e0;
+    margin-bottom: 1vh;
+    font-family: "Helvetica", sans-serif;
+}
+
+.research-authors {
+    font-size: 1vw;
+    color: #b0b0b0;
+    margin: 0.5vh 0;
+    font-style: italic;
+    font-family: "Helvetica", sans-serif;
+}
+
+.research-journal {
+    font-size: 0.9vw;
+    color: #999;
+    margin: 0.5vh 0 1.5vh 0;
+    font-family: "Helvetica", sans-serif;
+}
+
+/* About Page */
+.about-photo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+
+.about-photo {
+    width: 20vw;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.hire-me-text {
+    font-size: 0.6vw;
+    color: #999;
+    text-align: center;
+    margin: 0;
+    font-family: "Helvetica", sans-serif;
+}
+
+.resume-link {
+    color: #e9852e;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.resume-link:hover {
+    color: #ff9f4d;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #1a1a1a;
+    padding: 2vh 2vw;
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: auto;
+    color: #e0e0e0;
+}
+
+#hire-me {
+    font-size: 1vh;
+}

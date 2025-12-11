@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search - Good Eats</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button class="menu-btn">☰</button>
+        <a href="about.html" class="header-circle"></a>
+    </header>
+    <div class="side-panel">
+        <button class="close-btn">×</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="fast-food.html">Healthy Fast Food</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="brain-power.html">Brain Power</a></li>
+                <li><a href="energy.html">Energy</a></li>
+                <li><a href="gut-microbiome.html">Gut Microbiome</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="side-panel-overlay"></div>
+
+    <main>
+        <div class="recipe-hero">
+            <div class="hero-box">
+                <h1>Make a <span class="indent">Change</span></h1>
+                <p>Find your new favorite meal, find your new favorite you</p>
+            </div>
+        </div>
+
+        <div class="recipe-search">
+            <h1>Search for Recipes</h1>
+            <div class="search-container">
+                <input type="text" id="recipe-query" placeholder="Search">
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="loading" class="hidden">Loading recipes...</div>
+            <div id="error" class="error hidden"></div>
+        </div>
+
+        <div class="recipe-results hidden">
+            <h2>Recipe Results</h2>
+            <div id="recipes-container"></div>
+        </div>
+    </main>
+
+    <div class="section-separator"></div>
+
+    <div class="content-box">
+        <h2>Get in Touch</h2>
+        <div class="contact-info">
+            <p>Call us: (555) 123-4567</p>
+            <div class="social-links">
+                <img src="images/facebook.jpg" alt="Facebook" class="social-icon">
+                <img src="images/ig.png" alt="Instagram" class="social-icon">
+                <img src="images/tiktok.png" alt="TikTok" class="social-icon">
+            </div>
+            <p>Email us: contact@goodeats.com</p>
+        </div>
+        <div class="contact-info">
+            <p>Privacy & Cookie Policy</p>
+            <p>Terms & Conditions</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Powered by Spoonacular API.</p>
+    </footer>
+
+    <script src="recipes.js"></script>
+    <script>
+        //Apple website fade in from genAi
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        document.querySelectorAll('body *').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Side panel functionality
+        const menuBtn = document.querySelector('.menu-btn');
+        const sidePanel = document.querySelector('.side-panel');
+        const closeBtn = document.querySelector('.close-btn');
+        const overlay = document.querySelector('.side-panel-overlay');
+
+        // Ensure overlay starts hidden
+        overlay.classList.remove('active');
+
+        menuBtn.addEventListener('click', () => {
+            sidePanel.classList.add('open');
+            overlay.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidePanel.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidePanel.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
+

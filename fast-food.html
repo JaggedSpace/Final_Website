@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Fast Food - Good Eats</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button class="menu-btn">☰</button>
+        <a href="about.html" class="header-circle"></a>
+    </header>
+    <div class="side-panel">
+        <button class="close-btn">×</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="fast-food.html">Healthy Fast Food</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="brain-power.html">Brain Power</a></li>
+                <li><a href="energy.html">Energy</a></li>
+                <li><a href="gut-microbiome.html">Gut Microbiome</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="side-panel-overlay"></div>
+
+    <main>
+        <div class="intro-text">
+            <h1>Healthy Fast Food</h1>
+            <p>When diets crash, they crash hard from overcommitment. But most don't know how to cheat without even cheating.</p>
+        </div>
+
+        <div class="fast-food-section" id="chickfila">
+            <div class="fast-food-content">
+                <h2>Chick-fil-A</h2>
+                <h3>Grilled Chicken Sandwich</h3>
+                <p>Always opt for grilled over fried. It's higher in protein and lower in calories and grease.</p>
+                <h3>Grilled Nuggets</h3>
+                <p>Choose grilled nuggets (8-count) instead of fried. You can keep the fries.</p>
+            </div>
+            <div class="fast-food-image"></div>
+        </div>
+
+        <div class="fast-food-section fast-food-section-reverse" id="starbucks">
+            <div class="fast-food-image"></div>
+            <div class="fast-food-content">
+                <h2>Starbucks</h2>
+                <h3>Oatmeal</h3>
+                <p>Oatmeal and dried fruit are high in fiber and protein to keep you full longer.</p>
+                <h3>Black Coffee or Americano</h3>
+                <p>Skip the sugary drinks. Black coffee or an Americano provides antioxidants without added calories. Don't skimp on the milk if needed.</p>
+            </div>
+        </div>
+
+        <div class="fast-food-section" id="mcdonalds">
+            <div class="fast-food-content">
+                <h2>McDonald's</h2>
+                <h3>Egg McMuffin</h3>
+                <p>A classic breakfast option with protein from the egg and Canadian bacon. No hash browns.</p>
+                <h3>Artisan Grilled Chicken Sandwich</h3>
+                <p>Grilled chicken breast on a bun. Remove the mayo to reduce calories and fat.</p>
+                <h3>Apple Slices</h3>
+                <p>Choose apple slices as a side instead of fries. Natural sugars and fiber make this a better choice.</p>
+            </div>
+            <div class="fast-food-image"></div>
+        </div>
+
+        <div class="fast-food-section fast-food-section-reverse" id="sonic">
+            <div class="fast-food-image"></div>
+            <div class="fast-food-content">
+                <h2>Sonic</h2>
+                <h3>Grilled Chicken Sandwich</h3>
+                <p>Grilled chicken breast with lettuce and tomato. Skip the mayo and opt for mustard instead.</p>
+                <h3>Jr. Burger</h3>
+                <p>Smaller portion size means fewer calories. Add extra vegetables and skip the cheese.</p>
+            </div>
+        </div>
+
+        <div class="fast-food-section" id="popeyes">
+            <div class="fast-food-content">
+                <h2>Popeyes</h2>
+                <h3>Blackened Chicken Tenders</h3>
+                <p>Blackened tenders are grilled instead of fried, significantly reducing calories and fat.</p>
+            </div>
+            <div class="fast-food-image"></div>
+        </div>
+
+        <div class="fast-food-section fast-food-section-reverse" id="subway">
+            <div class="fast-food-image"></div>
+            <div class="fast-food-content">
+                <h2>Subway</h2>
+                <h3>6-inch Turkey Breast on Wheat</h3>
+                <p>Lean protein on whole grain bread. Load up on vegetables and skip high-calorie sauces like mayo or oil.</p>
+                <h3>Oven Roasted Chicken</h3>
+                <p>Oven-roasted chicken is lower in sodium than processed meats. Choose whole grain bread and add plenty of vegetables.</p>
+            </div>
+        </div>
+
+
+        <div class="fast-food-section" id="panda">
+            <div class="fast-food-content">
+                <h2>Panda Express</h2>
+                <h3>String Bean Chicken Breast</h3>
+                <p>Steamed chicken with vegetables. Lower in calories and sodium compared to fried options.</p>
+                <h3>Broccoli Beef</h3>
+                <p>Steamed broccoli with beef. Good source of protein and vegetables. Choose steamed rice over fried rice.</p>
+            </div>
+            <div class="fast-food-image"></div>
+        </div>
+    </main>
+
+    <div class="content-box">
+        <h2>Get in Touch</h2>
+        <div class="contact-info">
+            <p>Call us: (555) 123-4567</p>
+            <div class="social-links">
+                <img src="images/facebook.jpg" alt="" class="social-icon">
+                <img src="images/ig.png" alt="" class="social-icon">
+                <img src="images/tiktok.png" alt="" class="social-icon">
+            </div>
+            <p>Email us: contact@goodeats.com</p>
+        </div>
+        <div class="contact-info">
+            <p>Privacy & Cookie Policy</p>
+            <p>Terms & Conditions</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Powered by Spoonacular API.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        document.querySelectorAll('body *').forEach(item => {
+            observer.observe(item);
+        });
+
+        const menuBtn = document.querySelector('.menu-btn');
+        const sidePanel = document.querySelector('.side-panel');
+        const closeBtn = document.querySelector('.close-btn');
+        const overlay = document.querySelector('.side-panel-overlay');
+
+        overlay.classList.remove('active');
+
+        menuBtn.addEventListener('click', () => {
+            sidePanel.classList.add('open');
+            overlay.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidePanel.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidePanel.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        // Scroll-driven flow for fast-food sections
+        const flowSections = Array.from(document.querySelectorAll('.fast-food-section'));
+        let ticking = false;
+
+        const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+
+        function updateFlow() {
+            const vh = window.innerHeight;
+            flowSections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                const center = rect.top + rect.height / 2;
+                // progress peaks when section center is near viewport center
+                const progress = clamp(1 - Math.abs(center - vh / 2) / (vh * 0.6), 0, 1);
+                const direction = center < vh / 2 ? -1 : 1;
+                const translateY = (1 - progress) * 40 * direction; // px offset in/out
+                const scale = 0.96 + progress * 0.04;
+                sec.style.opacity = progress;
+                sec.style.transform = `translateY(${translateY}px) scale(${scale})`;
+            });
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(updateFlow);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', updateFlow);
+        updateFlow();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+This is how I used genAi in creating this website
+Creator: Nic Ekstrand 528375
+Date: 12/11/25
+
+In this website, there was heavy usage of generative AI. However, I think that my process of incorporating it was fair as I
+didn't tell it to churn out pages at a time. Instead, I took baby steps with every prompt so I could ensure I got a result that fit
+the mockup I drafted. So I like to think of my usage of it as a sandbox tool that would help me drag and drop text/image boxes to the right place
+and to add font/page effects. Ultimately, I was responsible for the formatting and div structure of the website and to make sure it responded well to smaller screens, I
+then used GenAI as the effect producer.
+
+
+////////////HTML USAGE////////////
+I created almost all of the html, as this allowed me to choose the layout of each page and helped me reuse class names
+to limit the CSS needed. However, generative AI was incorporated when making the spinning dots on the index page and the
+side menu pannel. It also added more class names to divs as the CSS got more complicated.
+
+
+////////////CSS USAGE////////////
+Generative AI was responsible for most of the CSS, as I relied on it to quickly debug justify-content and align-content errors that I was receiving. 
+Also, it could quickly edit text to mimic text formatting from websites that inspired me on awwwards. It also helped me create image classes/ids for
+sections on pages so I didn't have to churn out 20 img links. The work I did though was to make sure all dimension units were in vh and vw to ensure
+the page would work well on smaller screens.
+
+////////////Javascript USAGE////////////
+Generative AI was entirely responsible for all Javascript incorporated in this website, as the API calls would bring in a ton of information
+that took me forever to try to weed out the necessary information, so I used GenAI to debug that process for me. I also needed it for the 
+complicated page effects on images and sections to make them look like they were floating around and respond to scrolling.
